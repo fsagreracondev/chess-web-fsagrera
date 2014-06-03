@@ -163,5 +163,9 @@ function togglePlayers(){
 }
 
 function toggleInCheck(){
-	alert(currentPlayer + "is in check");
+	alert(currentPlayer + " is in check");
+}
+
+function checkMateAlert(){
+	alert( currentPlayer + " lost. Game is over, new game will begin");	
 }

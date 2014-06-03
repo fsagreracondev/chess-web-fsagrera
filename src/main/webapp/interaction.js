@@ -79,6 +79,7 @@ function MouseUp(e){
     	if(isInCheck())
     		toggleInCheck();
     	if(isGameOver()){
+    		checkMateAlert();
     		newGame();
     		draw();	
     		resetTime();
