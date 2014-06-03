@@ -29,10 +29,11 @@ function getValidMove(tile, orgTile){
 function movePiece(origin, destination){
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("POST", "http://localhost:8081/api/chess/moves", true);
-	xmlHttp.send({
+	xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xmlHttp.send(JSON.stringify({
 		"origin": origin, 
 		"destination": destination
-		});
+		}));
 }
 
 function isInCheck(){

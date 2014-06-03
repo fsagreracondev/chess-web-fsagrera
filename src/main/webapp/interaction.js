@@ -83,9 +83,6 @@ function MouseUp(e){
     		draw();	
     		resetTime();
     	}
-    	if(!activePiece){
-    		resetTime();
-    	}
     }
      
     refreshPieces();
