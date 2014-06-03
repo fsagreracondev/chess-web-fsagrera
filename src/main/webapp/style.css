@@ -1,0 +1,103 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+font-family: basic;
+src: url("font/basictitlefont.ttf");
+}
+
+.outer-center {
+    float: right;
+    right: 50%;
+    position: relative;
+}
+.inner-center {
+    float: right;
+    right: -50%;
+    position: relative;
+}
+.clear {
+    clear: both;
+}
+
+.title{
+	font-family: basic;
+	font-size: 45px;
+	display:block;
+	text-align:center;
+	margin-bottom:50px;
+}
+
+.matenames{
+	width:200px;
+	margin:0px auto 30px;
+	text-align:center;
+}
+
+.matenames .input-group{
+	padding-right:0px;
+}
+
+.matenames div{
+	margin-bottom:4px;	
+}
+
+.btn{
+	text-align:center;	
+	margin: 4px auto;
+	display:block;
+}
+
+.col-sm-4{
+	text-align:center;
+}
+
+.center{
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+.mateHeader{
+	font-family:basic;
+	font-size:20px;
+	font-weight:800;
+	color:#428bca;
+}
+
+.mateIcon{
+	height:30px;	
+}
+
+#player1, #player2{
+	font-size:16px;	
+}
+
+#chessBoard{
+	margin-top:20px;
+	width:100%;
+	border:2px solid #eee;	
+	border-radius: 4px;
+	box-shadow: 0 0 10px #ddd;
+}
+
+.section{
+	padding:10px 30px;
+}
+
+.sectionHeader{
+    font-family:basic;
+	font-size:24px;
+	color:#428bca;	
+	margin-bottom:10px;
+}
+
+.youtube-player{
+	display:block;
+	margin:15px;
+}
+
+
+#playBtn{
+	position:fixed;
+	top:15px;
+	right: 15px;	
+}

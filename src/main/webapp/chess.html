@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>CHECKyourMATE-Play</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="jquery/jquery-2.1.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="board.js"></script>
+	<script src="drawPiece.js"></script>
+	<script src="interaction.js"></script>
+	<script src="calls.js"></script>
+</head>
+<body>
+
+
+    <div class="title">CHECK<small>your</small>MATE</div>	
+
+	<div class="row-fluid">
+      <div class="col-sm-9 center">
+		      <div class="col-sm-4">
+			      <img class="mateIcon" src="images/kingB.png">
+			      <div class="mateHeader"> Mate 1</div>
+			      <div id=player1></div>
+		      </div>
+		      <div class="col-sm-4">
+		          <br>
+		          <br>
+		           <div id=gameTime></div> 
+		           <div id=whiteMate></div>
+		           <div id=blackMate></div>
+		      </div>
+		      <div class="col-sm-4">
+			     	<img class="mateIcon" src="images/kingW.png">
+			        <div class="mateHeader"> Mate 2</div>
+			        <div id=player2></div> 
+		      </div>
+      </div>
+	      <div class="col-sm-6  center">
+	     	<canvas id="chessBoard"></canvas>
+	      </div>
+   </div>
+<script>
+function loadPlayers(){
+	   var _player1 = localStorage.getItem('_player1');
+	   var _player2 = localStorage.getItem('_player2');
+	   
+	   if(_player1 && _player2) {
+
+		 $("#player1").text(_player1);
+	 	 $("#player2").text(_player2);
+	 	 
+	 	 $("#blackMate").text(_player1 + "'s turn");
+	 	 $("#whiteMate").text(_player2 + "'s turn");
+
+	     localStorage.removeItem('_player1');
+	     localStorage.removeItem('_player2');
+	     return true;
+	   }
+	   
+	   return false;
+	}
+
+var t;
+function calctime(){
+    t=setTimeout("calctime()",1000);
+	$("#gameTime").text(convertToHHMMSS(t));
+}
+
+function resetTime(){
+	clearTimeout(t);
+	calctime();
+}
+
+function convertToHHMMSS (seconds) {
+    var sec_num = parseInt(seconds, 10);
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0" + hours;}
+    if (minutes < 10) {minutes = "0" + minutes;}
+    if (seconds < 10) {seconds = "0" + seconds;}
+
+    return hours + ':' + minutes + ':'+ seconds;
+}
+
+$(document).ready(function(){
+	if(!loadPlayers()) 
+		window.location="index.html";
+	
+	calctime();
+	draw();
+});
+
+window.onresize = function(){
+	draw();
+};
+
+window.onscroll = function(){
+	draw();
+};
+
+</script>
+
+</body>
+</html>
